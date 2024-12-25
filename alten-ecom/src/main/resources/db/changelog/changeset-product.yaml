@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: aghalas
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: code
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: image
+                  type: varchar(255)
+              - column:
+                  name: category
+                  type: varchar(255)
+              - column:
+                  name: price
+                  type: decimal(10, 2)
+              - column:
+                  name: quantity
+                  type: smallint
+              - column:
+                  name: internal_reference
+                  type: varchar(255)
+              - column:
+                  name: shell_id
+                  type: int
+              - column:
+                  name: inventory_status
+                  type: varchar(255)
+              - column:
+                  name: rating
+                  type: int
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: created_by
+                  type: varchar(255)
+              - column:
+                  name: updated_at
+                  type: timestamp
+              - column:
+                  name: updated_by
+                  type: varchar(255)
+
+  - changeSet:
+      id: 2
+      author: aghalas
+      changes:
+        - sqlFile:
+            path: insert_products.sql
+            relativeToChangelogFile: true
